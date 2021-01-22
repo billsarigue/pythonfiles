@@ -1,19 +1,35 @@
 from time import sleep
+from os import system
+from platform import system as so
+
+
+
+#CLEAR
+def clear():
+
+	if so() == 'Linux':
+		system('clear')
+
+	if so() == 'Windows':
+		system('cls')
+
 
 #PLAYER DE MÚSICA
 def music_player():
+
 	#PERGUNTA SE QUER MÚSICA
-	p2 = input('''O senhor gostaria de ouvir uma música?
-[0] Não
-[1] Sim
-''').upper()
+	print('O senhor gostaria de ouvir uma música? S/N')
+	print('-'*50)
+	p2 = input('-> ').upper()
 	#ERRO
-	if p2 not in ['0', '1', 'SIM', 'NÃO', 'NAO', 'S', 'N']:
+	if p2 not in ['SIM', 'NÃO', 'NAO', 'S', 'N']:
 		print('ERRO\n', '   TENTE NOVAMENTE')
 
 	#RESPOSTA NÃO
-	if p2 in ['0', 'N', 'NAO', 'NÃO']:
-		s = input('Ok mestre, gostaria de sair? S/N').upper()
+	if p2 in ['N', 'NAO', 'NÃO']:
+		print('Ok mestre, gostaria de sair? S/N')
+		print('-'*50)
+		s = input('-> ').upper()
 
 		#ERRO
 		if s not in ['S', 'N']:
@@ -28,58 +44,54 @@ def music_player():
 		#RESPOSTA NÃO
 		if s == 'N':
 			print('OK')
-			input()
+			clear()
+			music_player()
 	
 	#RESPOSTA SIM	
 	if p2 in ['1', 'S', 'SIM']:
 		print('Pois não, Senhor.')
 		sleep(1.5)
-		print('''O senhor gostaria de ouvir músicas online, ou do sistema?'''
+		print('''O senhor gostaria de ouvir músicas online, ou do sistema?''')
+
 
 #MENU
 def menu():
+	clear()
 	print('Bem vindo, Mestre')
 
 	#PERGUNTA COMO FOI O DIA
-	p1 = input('Como foi o seu dia?').upper()
+	print('Como foi o seu dia?')
+	p1 = input('-> ').upper()
 
-		#RESPOSTA POSITIVA
-	if p1 in ['BOM', 'LEGAL', 'PRODUTIVO', 'EMPOLGANTE', 'EMOCIONANTE', 'IRADO', 'QUENTE', 'CRUEL', 'PIKA', 'INCRÍVEL', 'NICE' ]:
-	        print('Que bom, Patrão André!\n')
+	#RESPOSTA POSITIVA
+	if p1 in ['BOM', 'LEGAL', 'PRODUTIVO', 'EMPOLGANTE', 'EMOCIONANTE', 'IRADO', 'QUENTE', 'CRUEL', 'PIKA', 'INCRÍVEL', 'NICE','MASSA','MUITO MASSA' ]:
+		clear()
+		print('Que bom, Patrão André!\n')
 
-		#PERGUNTA SE QUER MÚSICA
-		print('Gostaria de ouvir uma música?')
-		per = str(input('-> '))
-	
+		#PLAYER DE MUSICA
+		music_player()
 
-		print('-'*40)
-		m = input('-> ').upper()
-		
-		#ERRO
-		if m not in ['0', '1', 'ONLINE', 'SISTEMA']:
-			print('ERRO\n', '   TENTE NOVAMENTE')
+	#RESPOSTA NEGATIVA
+	if p1 in ['RUIM','UMA MERDA','BOSTA','HORRÍVEL','CHATO','MONÓTONO','MONOTONO','PODRE','TEDIOSO','UM TÉDIO','UM TEDIO','CHATO PKRL','DEPLORÁVEL','MUITO RUIM','CU','UM CU']:
+		clear()
+		print('Uma pena, Senhor.')
+		sleep(1.8)
 
-		#ONLINE
-		print('Certamente, Senhor')
-		sleep(1.5)
-		musica = input('DIGITE AQUI O NOME DA SUA MÚSICA:')
-			
-
-
-
-
-
+		print('Senhor, acho que tenho uma solução:')
+		music_player()
 
 
 
 while True:
+	clear()
 	x = input('''Selecione  opção:
 [ 1 ]Soma
 [ 2 ]Subtração
 -> ''').upper()
 
-	if x not in ['1', '2', 'LUCIUS FOX']:
+	if x not in ['1', '2', 'LUCIUS FOX','SAIR','EXIT','CAPE THE CAT']:
 		print('ERRO\n   TENTE NOVAMENTE')
+		input()
 	if x == '1':
 		n1 = float(input('Primeiro número: '))
 		n2 = float(input('Segundo número: '))
@@ -93,6 +105,11 @@ while True:
 		input()
 	if x == 'LUCIUS FOX':
 		menu()
+
+	if x in ['SAIR','EXIT','CAPE THE CAT']:
+		print('Adeus!')
+		sleep(0.9)
+		exit()
 		
 		
 		
