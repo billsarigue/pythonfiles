@@ -3,7 +3,6 @@ from os import system
 from platform import system as so
 
 
-
 def clear():
     if so() == 'Linux':
         system('clear')
@@ -20,51 +19,57 @@ cores = {'limpa': '\033[m',
          'roxo': '\033[35m',
          'ciano': '\033[36m'}
 clear()
-print(f'{cores["azul"]}Bem vindo à calculadora de fisíca!{cores["limpa"]}\n')
-print('Primero, veja o menu abaixo:')
-menu = '''________________________________________________________________
-[V] Velocidade média 
 
-[S] Deslocamento
 
-[T] Variação de tempo
+def menu():
+    print('''________________________________________________________________
+    [V] Velocidade média 
+    
+    [S] Deslocamento
+    
+    [T] Variação de tempo
+    
+    [A] Aceleração
+    
+    [F] Força
+    
+    [C] Energia cinética 
+    
+    [G] Energia potencial gravitacional
+    
+    [P] Potência
+    
+    [D] Dilatação linear
+    
+    [TR] Trabalho
+    
+    [SF] Função horária (final) 
+    
+    [SO] Função horária (inicial) 
+    
+    [CO] Lei dos cossenos
+    
+    [TC] Conversão Farenheit -> Celcius
+    
+    [TF] Conversão Celcius -> Farenheit
+    
+    [VC] Conversão celsius - fahrenheit - celsius (variação)
+    ________________________________________________________________
+    ''')
+    print(f'[{cores["amarelo"]}+{cores["limpa"]}] Para sair digite {cores["ciano"]}[0]\n')
 
-[A] Aceleração
 
-[F] Força
-
-[C] Energia cinética 
-
-[G] Energia potencial gravitacional
-
-[P] Potência
-
-[D] Dilatação linear
-
-[TR] Trabalho
-
-[SF] Função horária (final) 
-
-[SO] Função horária (inicial) 
-
-[CO] Lei dos cossenos
-
-[TC] Conversão celsius -> fahrenheit 
-
-[TF] Conversão fahrenheit -> celsius
-
-[VC] Conversão celsius - fahrenheit - celsius (variação) = vc
-________________________________________________________________
-'''
 fim = 0
 while fim != 1:
-    clear()
-    print(menu)
+    print(f'{cores["azul"]}Bem vindo à calculadora de fisíca!{cores["limpa"]}\n')
+    menu()
     print(f'{cores["vermelho"]}IMPORTANTE! USE MEDIDAS DO SI!')
 
     formula = str(input(f'\n{cores["azul"]}Qual fórmula você quer calcular?{cores["limpa"]} -> ')).strip().upper()[0:2]
     clear()
     while formula not in 'S''T''A''F''C''G''TR''P''SF''SO''CO''TC''TF''VC''VF''D':
+        menu()
+        print(f'{cores["vermelho"]}IMPORTANTE! USE MEDIDAS DO SI!')
         formula = str(input(f'\n{cores["azul"]}Qual fórmula você quer calcular?{cores["limpa"]} ')).strip().upper()[0:2]
     if formula in 'V':
         x = 'q'
@@ -73,7 +78,7 @@ while fim != 1:
         v = s / t
         print(f'\nA velocidade média do corpo foi de {v:.2f} metros por segundo.')
         while x not in 'SN':
-            x = str(input('\nDeseja continuar? [S/N]')).strip().upper()[0]
+            x = str(input('\nDeseja continuar? [S/n]')).strip().upper()
             if x in 'S':
                 print('\nVamos lá!')
             else:
@@ -230,7 +235,7 @@ while fim != 1:
     elif formula in 'TF':
         x = 'q'
         c = float(input('Qual a temperatura em celsius? '))
-        f = (c / 5) * 9 + 32
+        f = (9*c+160)/5
         print(f'\nA temperatura em fahrenheit é de {f:.2f} °F.')
         while x not in 'SN':
             x = str(input('\nDeseja continuar? [S/N]')).strip().upper()[0]
@@ -242,7 +247,7 @@ while fim != 1:
     elif formula in 'TC':
         x = 'q'
         f = float(input('Qual a temperatura em fahrenheit? '))
-        c = ((f - 32) / 9) / 5
+        c = 5*(f-32)/9
         print(f'\nA temperatura em celsius é de {c:.2f} °C.')
         while x not in 'SN':
             x = str(input('\nDeseja continuar? [S/N]')).strip().upper()[0]
