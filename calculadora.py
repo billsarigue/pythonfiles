@@ -14,7 +14,7 @@ def clear():
 		system('cls')
 
 
-
+#IMPORTA O PLAYER ONLINE
 def player_online():
 	import playeronline
 
@@ -120,7 +120,7 @@ while True:
 
 	if x in ['SAIR','EXIT','CAPE THE CAT']:
 		print('Adeus!')
-		sleep(0.9)
+		sleep(0.7)
 		exit()
 		
 		
