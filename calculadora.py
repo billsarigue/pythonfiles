@@ -14,6 +14,11 @@ def clear():
 		system('cls')
 
 
+
+def player_online():
+	import playeronline
+
+
 #PLAYER DE MÚSICA
 def music_player():
 
@@ -23,10 +28,11 @@ def music_player():
 	p2 = input('-> ').upper()
 	#ERRO
 	if p2 not in ['SIM', 'NÃO', 'NAO', 'S', 'N']:
-		print('ERRO\n', '   TENTE NOVAMENTE')
+		print('\n   ERRO\n', 'TENTE NOVAMENTE')
 
 	#RESPOSTA NÃO
 	if p2 in ['N', 'NAO', 'NÃO']:
+		clear()
 		print('Ok mestre, gostaria de sair? S/N')
 		print('-'*50)
 		s = input('-> ').upper()
@@ -50,8 +56,14 @@ def music_player():
 	#RESPOSTA SIM	
 	if p2 in ['1', 'S', 'SIM']:
 		print('Pois não, Senhor.')
-		sleep(1.5)
-		print('''O senhor gostaria de ouvir músicas online, ou do sistema?''')
+		sleep(1)
+		clear()
+		print('O senhor gostaria de ouvir músicas online, ou do sistema?')
+		resposta = str(input('-> ')).upper()
+		if resposta == 'ONLINE':
+			clear()
+			player_online()
+
 
 
 #MENU
