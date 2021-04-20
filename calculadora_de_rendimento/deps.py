@@ -26,7 +26,7 @@ def abertura():
     tprint('RENDIMENTO',font="small")
 
 
-def main():
+def juros_compostos():
     valor_inicial = float(input('INVESTIMENTO INICIAL: '))
     taxa_ao_mes = float(input('TAXA AO MÊS: '))
     taxa_ao_mes = taxa_ao_mes / 100
@@ -40,3 +40,22 @@ def main():
     print('_'*35)
     print()
     input()
+    clear()
+
+def juros_simples():
+    valor_inicial = float(input('INVESTIMENTO INICIAL: '))
+    if valor_inicial == 0 :
+        return
+    taxa = float(input('TAXA POR PERÍODO: '))
+    taxa = taxa / 100
+    tempo = int(input('NÚMERO DE PERÍODOS: '))
+    valor_final = valor_inicial * (1 + taxa * tempo)
+    lucro = valor_final - valor_inicial
+    print()
+    print('_'*35)
+    print(f'\nVALOR FINAL: {cores["ciano"]}R${valor_final:.2f}{cores["limpa"]}')
+    print(f'LUCRO: {cores["verde"]}R${lucro:.2f}{cores["limpa"]}')
+    print('_'*35)
+    print()
+    input()
+    clear()
