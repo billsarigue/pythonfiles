@@ -108,7 +108,7 @@ def menu():
 
     # RESPOSTA POSITIVA
     if p1 in ['BOM', 'LEGAL', 'PRODUTIVO', 'EMPOLGANTE', 'EMOCIONANTE', 'IRADO', 'QUENTE', 'CRUEL', 'PIKA', 'INCRÍVEL',
-              'NICE', 'MASSA', 'MUITO MASSA']:
+              'NICE', 'MASSA', 'MUITO MASSA', 'EXCELENTE']:
         clear()
         print('Que bom, Patrão André!\n')
 
@@ -133,24 +133,24 @@ while True:
 [ 2 ]Subtração
 -> ''').upper()
 
-    if x not in ['1', '2', 'LUCIUS FOX', 'SAIR', 'EXIT', 'CAPE THE CAT']:
+    if x not in ['1', '2', '3', 'LUCIUS FOX', 'SAIR', 'EXIT', 'CAPE THE CAT']:
         print('ERRO\n   TENTE NOVAMENTE')
         input()
     if x == '1':
         n1 = float(input('Primeiro número: '))
         n2 = float(input('Segundo número: '))
-        print('A soma de {} com {} é \033[31m{}\033[m'.format(n1, n2, n1 + n2))
+        print('{} + {} = \033[31m{}\033[m'.format(n1, n2, n1 + n2))
         input()
 
     if x == '2':
         n1 = float(input('Primeiro número: '))
         n2 = float(input('Segundo número: '))
-        print('A subtração de {} de {} é \033[31m{}\033[m'.format(n2, n1, n1 - n2))
+        print('{} - {} = \033[31m{}\033[m'.format(n1, n2, n1 - n2))
         input()
     if x == 'LUCIUS FOX':
         menu()
 
-    if x in ['SAIR', 'EXIT', 'CAPE THE CAT']:
+    if x in ['SAIR', 'EXIT', 'CAPE THE CAT', '3']:
         print('Adeus!')
         sleep(0.3)
         exit()
