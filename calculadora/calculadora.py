@@ -74,7 +74,7 @@ def music_player():
             sleep(2)
             return
 
-        # RESPOSTA NÃO
+        # RESPOSTA NÃO lucius fox
         if s == 'N':
             print('OK')
             clear()

@@ -1,7 +1,7 @@
 import urllib.request
 import re
 from os import system
-
+from platform import system as so
 
 print('Qual o nome da música?')
 keyword = str(input('-> '))
@@ -12,4 +12,4 @@ video_ids = re.findall(r"watch\?v=(\S{11})", html.read().decode())
 
 search = "https://www.youtube.com/watch?v="+video_ids[0]
 
-system(f'brave-browser {search} ')
+system(f'brave-browser {search}')

@@ -3,17 +3,20 @@ from deps import *
 
 clear()
 
-abertura()
+
 
 while True:
 
+    abertura()		
     print('[1] JUROS COMPOSTOS \n' + '[2] JUROS SIMPLES\n' + '[3] SAIR')
 
     pergunta = str(input('\n-> ')).lower()
 
-    if pergunta not in ['1','2','3','sair']:
+    if pergunta not in ['1','2','3','sair','exit']:
 
         print('ERRO, TENTE NOVAMENTE')
+        input()
+        clear()
 
     elif pergunta == '1':
 
@@ -24,7 +27,7 @@ while True:
         clear()
         juros_simples()
 
-    elif pergunta == '3':
+    elif pergunta in ['3','sair','exit']:
 
         clear()
         print('ADEUS!')
