@@ -12,4 +12,4 @@ video_ids = re.findall(r"watch\?v=(\S{11})", html.read().decode())
 
 search = "https://www.youtube.com/watch?v="+video_ids[0]
 
-system(f'start {search} ')
+system(f'brave-browser {search} ')

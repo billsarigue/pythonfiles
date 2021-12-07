@@ -36,7 +36,8 @@ def player_sistema():
 
     pygame.init()
     pygame.mixer.init()
-    pygame.mixer.music.load(f'music\{musicas_disponiveis[musica]}')
+    #Adicionar o caminho completo do sistema ate a pasta music
+    pygame.mixer.music.load(f'/home/andrefernandes/andrefernandes/pythonzin/pythonfiles/calculadora/music/{musicas_disponiveis[musica]}')
     pygame.mixer.music.play()
     pygame.event.wait()
 
@@ -131,28 +132,43 @@ while True:
     x = input('''Selecione  opção:
 [ 1 ]Soma
 [ 2 ]Subtração
+[ 3 ]Multiplicação
+[ 4 ]Divisão
+
 -> ''').upper()
 
-    if x not in ['1', '2', '3', 'LUCIUS FOX', 'SAIR', 'EXIT', 'CAPE THE CAT']:
+    if x not in ['1', '2', '3', '4', '5', 'LUCIUS FOX', 'SAIR', 'EXIT', 'CAPE THE CAT']:
         print('ERRO\n   TENTE NOVAMENTE')
         input()
     if x == '1':
-        n1 = float(input('Primeiro número: '))
-        n2 = float(input('Segundo número: '))
-        print('{} + {} = \033[31m{}\033[m'.format(n1, n2, n1 + n2))
+        n1 = float(input('\nPrimeiro número: '))
+        n2 = float(input('\nSegundo número: '))
+        print(f'\n{n1} + {n2} = \033[31m{n1+n2}\033[m')
         input()
 
-    if x == '2':
-        n1 = float(input('Primeiro número: '))
-        n2 = float(input('Segundo número: '))
-        print('{} - {} = \033[31m{}\033[m'.format(n1, n2, n1 - n2))
+    elif x == '2':
+        n1 = float(input('\nPrimeiro número: '))
+        n2 = float(input('\nSegundo número: '))
+        print(f'\n{n1} - {n2} = \033[31m{n1-n2}\033[m')
         input()
-    if x == 'LUCIUS FOX':
+
+    elif x == '3': 
+        n1 = float(input('\nPrimeiro número: '))
+        n2 = float(input('\nSegundo número: '))
+        print(f'\n{n1} x {n2} = \033[31m{n1*n2}\033[m')
+        input()
+
+    elif x == '4':
+        n1 = float(input('\nPrimeiro número: '))
+        n2 = float(input('\nSegundo número: '))
+        print(f'\n{n1} / {n2} = \033[31m{n1/n2}\033[m')
+        input()
+
+    elif x == 'LUCIUS FOX':
         menu()
 
-    if x in ['SAIR', 'EXIT', 'CAPE THE CAT', '3']:
+    if x in ['SAIR', 'EXIT', '5', 'CAPE THE CAT']:
         print('Adeus!')
         sleep(0.3)
         exit()
-
-
+    
