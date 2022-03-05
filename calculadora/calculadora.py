@@ -129,45 +129,65 @@ def menu():
 
 while True:
     clear()
-    x = input('''Selecione  opção:
+    x = input('''Selecione a opção:
 [ 1 ]Soma
 [ 2 ]Subtração
 [ 3 ]Multiplicação
 [ 4 ]Divisão
-
+[ 5 ]Potência
+[ 6 ]Raiz
 -> ''').upper()
 
-    if x not in ['1', '2', '3', '4', '5', 'LUCIUS FOX', 'SAIR', 'EXIT', 'CAPE THE CAT']:
+    if x not in ['1', '2', '3', '4', '5', '6', '7', '8', 'LUCIUS FOX', 'SAIR', 'EXIT', 'CAPE THE CAT', 'QUIT']:
         print('ERRO\n   TENTE NOVAMENTE')
         input()
+
+    #SOMA    
     if x == '1':
         n1 = float(input('\nPrimeiro número: '))
         n2 = float(input('\nSegundo número: '))
-        print(f'\n{n1} + {n2} = \033[31m{n1+n2}\033[m')
+        print(f'\n{n1} + {n2} = \033[31m{n1+n2:.3}\033[m')
         input()
 
+    #SUBTRAÇÃO
     elif x == '2':
         n1 = float(input('\nPrimeiro número: '))
         n2 = float(input('\nSegundo número: '))
-        print(f'\n{n1} - {n2} = \033[31m{n1-n2}\033[m')
+        print(f'\n{n1} - {n2} = \033[31m{n1-n2:.3}\033[m')
         input()
 
+    #MULTIPLICAÇÃO
     elif x == '3': 
         n1 = float(input('\nPrimeiro número: '))
         n2 = float(input('\nSegundo número: '))
-        print(f'\n{n1} x {n2} = \033[31m{n1*n2}\033[m')
+        print(f'\n{n1} x {n2} = \033[31m{n1*n2:.3}\033[m')
         input()
 
+    #DIVISÃO
     elif x == '4':
         n1 = float(input('\nPrimeiro número: '))
         n2 = float(input('\nSegundo número: '))
-        print(f'\n{n1} / {n2} = \033[31m{n1/n2}\033[m')
+        print(f'\n{n1} / {n2} = \033[31m{n1/n2:.3}\033[m')
+        input()
+
+    #POTÊNCIA
+    elif x == '5':
+        n1 = float(input('\nBase: '))
+        n2 = float(input('\nExpoente: '))
+        print(f'\n{n1}^{n2} = \033[31m{n1**n2:.3}\033[m')    
+        input()
+
+    #RAÍZ
+    elif x == '6':
+        n1 = float(input('\nRadicando: '))
+        n2 = float(input('\nÍndice: '))
+        print(f'\n√{n1} = \033[31m{n1 ** (1/n2):.3}\033[m')
         input()
 
     elif x == 'LUCIUS FOX':
         menu()
 
-    if x in ['SAIR', 'EXIT', '5', 'CAPE THE CAT']:
+    if x in ['SAIR', 'EXIT', '8', 'QUIT', 'CAPE THE CAT']:
         print('Adeus!')
         sleep(0.3)
         exit()
