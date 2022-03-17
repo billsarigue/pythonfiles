@@ -1,8 +1,5 @@
-from contextlib import redirect_stderr
-import imp
 from os import system
 from platform import system as so
-from unittest import result
 from pyfiglet import Figlet
 from math import sqrt
 
