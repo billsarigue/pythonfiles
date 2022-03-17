@@ -2,6 +2,18 @@ import sqlite3
 from time import sleep
 from pyfiglet import Figlet
 from random import choice
+from os import system
+from platform import system as so
+
+
+
+def clear():
+    if so() == 'Linux':
+        system('clear')
+
+    if so() == 'Windows':
+        system('cls')
+
 
 
 def render(text):
@@ -87,6 +99,7 @@ if (Senha_mestra == '220304') or (Senha_mestra == 'lucius fox'):
 
     while True:
         while Senha_mestra == 'lucius fox':
+            clear()
             render('fsociety')
             menu_admin()
             op = input('-> ')
@@ -128,9 +141,10 @@ if (Senha_mestra == '220304') or (Senha_mestra == 'lucius fox'):
                 break
             if op == 'root':
                 print('BEM, VINDO MESTRE')
-                import veia
+                #import veia
                 input('PRESSIONE ENTER PARA CONTINUAR')
 
+        clear()
         render(choice(wallpapers))
         print(' By: André Fernandes')
         menu()
