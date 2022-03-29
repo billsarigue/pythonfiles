@@ -1,5 +1,6 @@
+from posixpath import abspath
 from time import sleep
-from os import system
+from os import system, path
 from platform import system as so
 import pygame
 import yaml
@@ -34,13 +35,23 @@ def player_sistema():
     print('DIGITE A OPÇÃO DESEJADA')
     musica = input('-> ')
 
+    absolutepath = path.abspath(__file__)
+
     pygame.init()
     pygame.mixer.init()
     #Adicionar o caminho completo do sistema ate a pasta music
-    pygame.mixer.music.load(f'/home/andrefernandes/andrefernandes/pythonzin/pythonfiles/calculadora/music/{musicas_disponiveis[musica]}')
-    pygame.mixer.music.play()
-    pygame.event.wait()
 
+    if so() == 'Linux':
+        #pygame.mixer.music.load(f'/home/andrefernandes/andrefernandes/pythonzin/pythonfiles/calculadora/music/{musicas_disponiveis[musica]}')
+        pygame.mixer.music.load(f'{absolutepath}'.replace('/calculadora.py', '')+f'/music/{musicas_disponiveis[musica]}')
+        pygame.mixer.music.play()
+        pygame.event.wait()
+
+    elif so() == 'Windows':
+
+        pygame.mixer.music.load(f'{absolutepath}'.replace('\calculadora.py', '')+f'\music\{musicas_disponiveis[musica]}')
+        pygame.mixer.music.play()
+        pygame.event.wait()
 
 # IMPORTA O PLAYER ONLINE
 def player_online():
