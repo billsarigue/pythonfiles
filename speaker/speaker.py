@@ -20,7 +20,7 @@ engine.setProperty('voice', 'brazil')
 
 engine.setProperty('rate', 150)
 
-print('OLÁ! DIGITE AQUI O QUE VOCÊ QUER QUE EU DIGA!')
+print('\nOLÁ! DIGITE AQUI O QUE VOCÊ QUER QUE EU DIGA!')
 
 while True:
     clear()
